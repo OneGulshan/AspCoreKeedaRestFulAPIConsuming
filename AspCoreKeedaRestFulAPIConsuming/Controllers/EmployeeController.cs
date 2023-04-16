@@ -59,7 +59,7 @@ namespace AspCoreKeedaRestFulAPIConsuming.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var results = response.Content.ReadAsStringAsync().Result;
-                employee = JsonConvert.DeserializeObject<Employee>(results) ?? throw new InvalidOperationException();
+                employee = JsonConvert.DeserializeObject<Employee>(results) ?? throw new InvalidOperationException("Http Client 'Employee' list not found");
             }
             return employee;
         }
